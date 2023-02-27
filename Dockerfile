@@ -5,7 +5,7 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish FinanceControl.csproj -c Release -o out
 
-EXPOSE 3001
+EXPOSE 3001:80
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build /app/out .
